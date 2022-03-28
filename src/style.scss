@@ -1,0 +1,97 @@
+$font-family: "Poppins", sans-serif;
+$main-bg: linear-gradient(280deg, rgba(39, 30, 79, 1) 0%, rgba(22, 13, 60, 1) 100%);
+$main-bg-color: rgba(39, 30, 79, 1);
+
+body {
+	margin: 0;
+	font-family: $font-family;
+	height: 100vh;
+}
+p {
+	margin: 0;
+}
+.App {
+	height: 100vh;
+}
+
+footer {
+	background: $main-bg;
+	font-size: 14px;
+}
+h1 {
+	font-size: 2rem;
+}
+
+.nav-link {
+	color: #ffffff !important;
+	padding: 0.5rem 0rem !important;
+	&:hover {
+		text-decoration: none !important;
+	}
+}
+.product-main {
+	img {
+		width: 20%;
+	}
+	.body {
+		flex: 2 2 20em !important;
+	}
+	.description {
+		font-size: 0.9rem;
+	}
+}
+.categories--btn {
+	border: 1px solid $main-bg-color;
+	&:hover {
+		background-color: $main-bg-color;
+		color: #fff;
+	}
+}
+.categories--container {
+	h2 {
+		font-size: 1.3rem;
+	}
+}
+
+.image_cont {
+	height: 400px;
+	flex: 1 1 10em;
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+}
+
+.card-cont {
+	width: 30%;
+
+	.card-image {
+		width: 100%;
+		height: 35vh;
+		object-fit: scale-down;
+	}
+	.title {
+		font-size: 1rem;
+	}
+	.category {
+		font-size: 1rem;
+	}
+	.description {
+		font-size: 0.8rem;
+	}
+}
+
+/*---Media Queries --*/
+@media (max-width: 992px) {
+}
+@media (max-width: 768px) {
+	.card-cont {
+		width: 100%;
+	}
+}
+@media (max-width: 576px) {
+	.card-cont {
+		width: 100%;
+	}
+}
