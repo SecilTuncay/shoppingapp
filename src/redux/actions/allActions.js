@@ -1,7 +1,6 @@
-import katalogAppApi from "../../apis/katalogAppApi";
 import { ActionTypes } from "../constants/action-types";
 
-export const fetchSliders = () => async dispatch => {
+/* export const fetchSliders = () => async dispatch => {
 	const response = await katalogAppApi.get("/sliders");
 
 	dispatch({ type: ActionTypes.FETCH_SLIDERS, payload: response });
@@ -11,7 +10,7 @@ export const fetchCategories = () => async dispatch => {
 	const response = await katalogAppApi.get("/categories");
 
 	dispatch({ type: ActionTypes.FETCH_CATEGORIES, payload: response });
-};
+}; */
 
 export const setSliders = sliders => {
 	return {

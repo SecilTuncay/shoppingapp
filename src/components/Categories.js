@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCategories } from "../redux/actions/allActions";
+import { getCategories } from "../redux/actions/allActions";
 import { Nav } from "react-bootstrap";
 import axios from "axios";
 
@@ -9,19 +9,14 @@ function Categories() {
 	console.log("categoriesInfo: ", categoriesInfo);
 	const dispatch = useDispatch();
 
-	/* 	async function fetchCategories() {
-		try {
-			const response = await axios.get("http://localhost:3000/categories");
-			if (response.data) {
-				dispatch(getCategories(response.data));
-			}
-		} catch (e) {
-			console.log("Bilgiler Yüklenemedi.");
-		}
-	}
- */
+	const fetchCategories = async () => {
+		const response = await axios.get("http://localhost:3000/categories").catch(err => err);
+
+		dispatch(getCategories(response.data));
+	};
+
 	useEffect(() => {
-		dispatch(fetchCategories());
+		fetchCategories();
 	}, []);
 
 	const categoryRenderList = categoriesInfo.categories.map(category => {

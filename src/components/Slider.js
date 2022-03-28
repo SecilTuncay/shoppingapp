@@ -1,30 +1,27 @@
 import React, { useEffect } from "react";
 import { Carousel, Nav } from "react-bootstrap";
-import { fetchSliders } from "../redux/actions/allActions";
+import { setSliders } from "../redux/actions/allActions";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 
 function Slider() {
 	const sliderInfo = useSelector(state => state.sliders.sliders);
 	const dispatch = useDispatch();
 
-	/* 	async function fetchSliders() {
-		try {
-			const response = await axios.get("http://localhost:3000/sliders");
-			if (response.data) {
-				dispatch(setSliders(response.data));
-			}
-		} catch (e) {
-			console.log("Bilgiler Yüklenemedi.");
-		}
-	} */
+	const fetchSliders = async () => {
+		const response = await axios.get("http://localhost:3000/sliders").catch(err => {
+			console.log("Err: ", err);
+		});
+		dispatch(setSliders(response.data));
+	};
 
 	useEffect(() => {
 		fetchSliders();
 	}, []);
 
 	console.log(sliderInfo);
-
-	const sliderRenderList = sliderInfo.data.map(slider => {
+	debugger;
+	/* 	const sliderRenderList = sliderInfo.data.map(slider => {
 		const { productId, image } = slider;
 		return (
 			<Carousel.Item key={productId} interval={1500}>
@@ -35,7 +32,7 @@ function Slider() {
 				</Nav>
 			</Carousel.Item>
 		);
-	});
+	}); */
 
 	return (
 		<section>
