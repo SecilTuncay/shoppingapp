@@ -7,6 +7,12 @@ export const fetchSliders = () => async dispatch => {
 	dispatch({ type: ActionTypes.FETCH_SLIDERS, payload: response });
 };
 
+export const fetchCategories = () => async dispatch => {
+	const response = await katalogAppApi.get("/categories");
+
+	dispatch({ type: ActionTypes.FETCH_CATEGORIES, payload: response });
+};
+
 export const setSliders = sliders => {
 	return {
 		type: ActionTypes.SET_SLIDERS,

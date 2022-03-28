@@ -1,8 +1,6 @@
 import { ActionTypes } from "../constants/action-types";
 
-const initialState = {
-	sliders: []
-};
+const initialState = {};
 
 export const sliderReducer = (state = initialState, { type, payload }) => {
 	switch (type) {

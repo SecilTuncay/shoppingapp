@@ -4,7 +4,7 @@ import { fetchSliders } from "../redux/actions/allActions";
 import { useDispatch, useSelector } from "react-redux";
 
 function Slider() {
-	const sliderInfo = useSelector(state => state.sliders.sliders.data);
+	const sliderInfo = useSelector(state => state.sliders.sliders);
 	const dispatch = useDispatch();
 
 	/* 	async function fetchSliders() {
@@ -19,11 +19,12 @@ function Slider() {
 	} */
 
 	useEffect(() => {
-		dispatch(fetchSliders());
+		fetchSliders();
 	}, []);
+
 	console.log(sliderInfo);
 
-	/* 	const sliderRenderList = sliderInfo.map(slider => {
+	const sliderRenderList = sliderInfo.data.map(slider => {
 		const { productId, image } = slider;
 		return (
 			<Carousel.Item key={productId} interval={1500}>
@@ -34,13 +35,13 @@ function Slider() {
 				</Nav>
 			</Carousel.Item>
 		);
-	}); */
+	});
 
 	return (
 		<section>
 			<div className="container">
 				<Carousel prevLabel="" nextLabel="" indicators={false}>
-					{/* 		{sliderRenderList} */}
+					{/* 	{sliderRenderList} */}
 				</Carousel>
 			</div>
 		</section>

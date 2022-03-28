@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCategories } from "../redux/actions/allActions";
+import { fetchCategories } from "../redux/actions/allActions";
 import { Nav } from "react-bootstrap";
 import axios from "axios";
 
 function Categories() {
-	const categoriesInfo = useSelector(state => state.categories);
+	const categoriesInfo = useSelector(state => state.categories.categories);
+	console.log("categoriesInfo: ", categoriesInfo);
 	const dispatch = useDispatch();
-	async function fetchCategories() {
+
+	/* 	async function fetchCategories() {
 		try {
 			const response = await axios.get("http://localhost:3000/categories");
 			if (response.data) {
@@ -17,9 +19,9 @@ function Categories() {
 			console.log("Bilgiler Yüklenemedi.");
 		}
 	}
-
+ */
 	useEffect(() => {
-		fetchCategories();
+		dispatch(fetchCategories());
 	}, []);
 
 	const categoryRenderList = categoriesInfo.categories.map(category => {

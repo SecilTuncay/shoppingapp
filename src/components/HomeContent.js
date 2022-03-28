@@ -6,7 +6,7 @@ function HomeContent() {
 	return (
 		<div className="mt-4">
 			<Slider />
-			{/* 	<Categories /> */}
+			{/* <Categories /> */}
 		</div>
 	);
 }
